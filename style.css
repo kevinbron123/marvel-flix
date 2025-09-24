@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  background-color: #141414;
+  color: white;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+header {
+  background-color: #000;
+  position: sticky; /* Fija la barra de navegación arriba al hacer scroll */
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.logo {
+  height: 35px;
+  filter: drop-shadow(0 0 4px rgba(255,28,28,0.5)); /* Sombra roja para darle un "toque Marvel" */
+}
+
+/* Estilo y efecto de los enlaces de navegación */
+.navbar-nav .nav-link {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #e5e5e5 !important; 
+  font-weight: 600;
+  padding: 0.5rem 1rem !important; 
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin: 0 0.25rem; 
+}
+
+/* Efecto de interacción al pasar el mouse por el menú */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #ff1c1c !important; /* El texto se vuelve rojo brillante */
+  background-color: rgba(255, 28, 28, 0.1);
+  box-shadow: 0 0 8px rgba(255, 28, 28, 0.6);
+  transform: translateY(-1px); /* Pequeño movimiento hacia arriba */
+}
+
+/* Toggler en móviles - ajuste de tamaño */
+.navbar-toggler {
+  padding: 0.25rem 0.5rem; 
+  border: 1px solid rgba(255,28,28,0.3); /* Borde rojo tenue para tema */
+}
+
+/* Estilos específicos para la versión móvil */
+@media (max-width: 991px) { /* Breakpoint de lg en Bootstrap */
+  .navbar-collapse {
+    background-color: #000; /* Fondo negro cuando se abre en móvil */
+    padding: 1rem;
+    border-top: 1px solid #ff1c1c; /* Separador rojo */
+  }
+   
+  @media (max-width: 480px) {
+    .logo {
+      height: 30px;
+    }
+  }
+}
+
+/* Título de la página principal */
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(255, 28, 28, 0.8); /* Sombra de texto roja para destacar */
+}
+
+/* Cards de personajes */
+.personaje-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(255, 28, 28, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+/* Efecto de interacción al pasar el mouse sobre la tarjeta */
+.personaje-card:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño (el efecto más visible) */
+  box-shadow: 0 8px 20px rgba(255, 28, 28, 0.8); /* La sombra roja se intensifica para destacarla */
+}
+
+.personaje-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-bottom: 2px solid #ff1c1c; /* Línea roja que separa la imagen del nombre */
+}
+
+.personaje-card .card-title {
+  padding: 0.75rem 0.5rem;
+  font-size: 1.1rem;
+  text-align: center;
+  background-color: #222;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Contenedor de Detalle (en detalle.html) */
+.detalle-container {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #1e1e1e 0%, #2c2c2c 100%); /* Fondo degradado */
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(255, 28, 28, 0.6); /* Caja con un brillo rojo temático */
+  color: #eee;
+}
+
+.detalle-personaje img {
+  object-fit: cover;
+  border-radius: 12px;
+  border: 4px solid #ff1c1c; /* Marco rojo sólido para la imagen */
+  box-shadow: 0 6px 22px rgba(255, 28, 28, 0.8);
+}
+
+.detalle-personaje h2 {
+  margin-top: 0;
+  font-size: 2.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 10px rgba(255, 28, 28, 0.9); /* Sombra de texto fuerte para el nombre del personaje */
+}
+
+.detalle-personaje p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 1.3rem;
+  color: #ddd;
+  text-align: justify;
+}
+
+/* Clase clave para ocultar/mostrar elementos con JavaScript */
+.hidden {
+  display: none !important; 
+}
+
+/* Loader de carga */
+.loader {
+  font-size: 1.3rem;
+  color: #ccc;
+  text-align: center;
+  margin: 3rem 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.loader::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 3px solid transparent;
+  border-top-color: #ff1c1c; /* Borde superior rojo */
+  border-radius: 50%;
+  animation: spin 1s linear infinite; /* Aplica la animación de giro */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg); /* Define la animación de giro completo */
+  }
+}
+
+/* Mensaje de Error: Estilo visual para que el mensaje de error destaque */
+.error {
+  font-size: 1.3rem;
+  color: #fff;
+  text-align: center;
+  margin: 3rem auto;
+  padding: 1rem 2rem;
+  max-width: 400px;
+  background-color: rgba(244, 67, 54, 0.85);
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(244, 67, 54, 0.8);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+/* Estilo para la página de detalle: Asegura que ocupe toda la pantalla y tiene un fondo temático */
+body > main#detalle {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #0d0d0d, #1f1f1f);
+  box-shadow: inset 0 0 150px 30px rgba(255, 28, 28, 0.3); /* Sombra roja interna para efecto de túnel */
+}
